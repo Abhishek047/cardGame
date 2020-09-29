@@ -1,0 +1,277 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: azure;
+}
+
+.clock-contain {
+  position: absolute;
+  background-color: skyblue;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 3px 3px rgba(17, 17, 17, 0.5);
+          box-shadow: 0 0 3px 3px rgba(17, 17, 17, 0.5);
+  width: 60px;
+  height: 60px;
+  top: 10px;
+  left: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.clock-contain .clock {
+  font-size: 1.5em;
+}
+
+.contain {
+  position: relative;
+  margin: 50px auto;
+  width: 840px;
+  height: 500px;
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: '. comp2  comp2 .' 'comp1 play  play comp3' 'comp1 play play comp3' '.  player player .';
+}
+
+.card-contain {
+  width: 325px;
+  height: 125px;
+  padding-right: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row;
+          flex-flow: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.card {
+  overflow: hidden;
+  width: 55px;
+  height: 85px;
+  margin-left: -30px;
+  background-color: #eaeaea;
+  background-image: url(./CardBg.svg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border: 1px solid black;
+  -webkit-transform: rotateX(-2deg);
+          transform: rotateX(-2deg);
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  color: white;
+  font-weight: 600;
+  padding-top: 25px;
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.card:nth-child(1) {
+  margin-left: 15px;
+}
+
+.result {
+  position: absolute;
+  top: 90px;
+  left: 10px;
+}
+
+.player {
+  margin-top: 20px;
+  -ms-grid-row: 4;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: player;
+}
+
+.player .card:hover {
+  z-index: 1;
+  margin-bottom: 20px;
+}
+
+.comp1 {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  grid-area: comp1;
+}
+
+.comp2 {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: comp2;
+}
+
+.play {
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: play;
+  position: relative;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+.play .user0 {
+  position: absolute;
+  -webkit-animation: userP .3s forwards;
+          animation: userP .3s forwards;
+}
+
+.play .user1 {
+  position: absolute;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-animation: userC1 .3s forwards;
+          animation: userC1 .3s forwards;
+}
+
+.play .user2 {
+  position: absolute;
+  -webkit-animation: userC2 .3s forwards;
+          animation: userC2 .3s forwards;
+}
+
+.play .user3 {
+  position: absolute;
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+  -webkit-animation: userC3 .3s forwards;
+          animation: userC3 .3s forwards;
+}
+
+.comp3 {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -ms-grid-row: 2;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 4;
+  grid-area: comp3;
+}
+
+@-webkit-keyframes userP {
+  from {
+    bottom: -45%;
+    left: 45%;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    left: 45%;
+    opacity: 1;
+  }
+}
+
+@keyframes userP {
+  from {
+    bottom: -45%;
+    left: 45%;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    left: 45%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes userC1 {
+  from {
+    bottom: 25%;
+    left: -45%;
+    opacity: 0;
+  }
+  to {
+    bottom: 25%;
+    left: 30%;
+    opacity: 1;
+  }
+}
+
+@keyframes userC1 {
+  from {
+    bottom: 25%;
+    left: -45%;
+    opacity: 0;
+  }
+  to {
+    bottom: 25%;
+    left: 30%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes userC2 {
+  from {
+    top: -45%;
+    left: 45%;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    left: 55%;
+    opacity: 1;
+  }
+}
+
+@keyframes userC2 {
+  from {
+    top: -45%;
+    left: 45%;
+    opacity: 0;
+  }
+  to {
+    top: 0;
+    left: 55%;
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes userC3 {
+  from {
+    top: 25%;
+    right: -45%;
+    opacity: 0;
+  }
+  to {
+    top: 25%;
+    right: 25%;
+    opacity: 1;
+  }
+}
+
+@keyframes userC3 {
+  from {
+    top: 25%;
+    right: -45%;
+    opacity: 0;
+  }
+  to {
+    top: 25%;
+    right: 25%;
+    opacity: 1;
+  }
+}
+/*# sourceMappingURL=style.css.map */
